@@ -6,7 +6,7 @@
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   <link rel="stylesheet" href="css/styles.css">
-
+  <script defer src="js/main.js"></script>
   <title>Frontend Mentor | Article preview component</title>
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
@@ -30,13 +30,31 @@
           to help you make any room feel complete.
         </p>
         <div class="user">
-          <img src="images/avatar-michelle.jpg" alt="" class="user-img">
-          <div class="user-details">
-            <div class="user-name">Michelle Appleton</div>
-            <div class="post-date">28 Jun 2020</div>
+          <div class="user-profile">
+            <img src="images/avatar-michelle.jpg" alt="" class="user-img">
+            <div class="user-details">
+              <div class="user-name">Michelle Appleton</div>
+              <div class="post-date">28 Jun 2020</div>
+            </div>
           </div>
-          <div class="share-button">
-            <img src="images/icon-share.svg" alt="Share">
+          <a class="share-button unclicked">
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="13">
+              <path fill="#6E8098" d="M15 6.495L8.766.014V3.88H7.441C3.33 3.88 0 7.039 0 10.936v2.049l.589-.612C2.59 10.294 5.422 9.11 8.39 9.11h.375v3.867L15 6.495z"/>
+            </svg>
+          </a>
+
+          <div class="popup">
+            <div class="links">
+              <span class="share-title">SHARE</span>
+              <img src="images/icon-facebook.svg" alt="" class="site-link">
+              <img src="images/icon-twitter.svg" alt="" class="site-link">
+              <img src="images/icon-pinterest.svg" alt="" class="site-link">
+            </div>
+            <a class="share-button clicked">
+              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="13">
+                <path fill="#6E8098" d="M15 6.495L8.766.014V3.88H7.441C3.33 3.88 0 7.039 0 10.936v2.049l.589-.612C2.59 10.294 5.422 9.11 8.39 9.11h.375v3.867L15 6.495z"/>
+              </svg>
+            </a>
           </div>
         </div>
       </div>

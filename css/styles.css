@@ -21,18 +21,19 @@ body .container {
   display: flex;
   flex-direction: column;
   background-color: hsl(0, 0%, 100%);
-  border-radius: 4%;
+  border-radius: 1rem;
   box-shadow: 0 1rem 2rem 0.5rem #dedede;
+  max-width: 320px;
+  position: relative;
 }
 body .container img {
-  border-radius: 4% 4% 0 0;
-  width: 100%;
+  border-radius: 1rem 1rem 0 0;
 }
 body .container .article {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  padding: 2rem;
+  padding: 1.5rem 2.5rem;
 }
 body .container .article .article-title {
   font-size: 1.25rem;
@@ -42,7 +43,7 @@ body .container .article .article-title {
 body .container .article .article-content {
   color: hsl(214, 17%, 51%);
   font-weight: 500;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
   line-height: 1.5rem;
   font-size: 1.01rem;
 }
@@ -50,56 +51,154 @@ body .container .article .user {
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: space-between;
   gap: 1rem;
 }
-body .container .article .user .user-img {
-  max-width: 14%;
+body .container .article .user .user-profile {
+  display: flex;
+  gap: 1.5rem;
+}
+body .container .article .user .user-profile .user-img {
+  max-width: 3rem;
   border-radius: 50%;
 }
-body .container .article .user .user-details {
+body .container .article .user .user-profile .user-details {
   display: flex;
   flex-direction: column;
 }
-body .container .article .user .user-details .user-name {
+body .container .article .user .user-profile .user-details .user-name {
   font-weight: 700;
   color: hsl(217, 19%, 35%);
 }
-body .container .article .user .user-details .post-date {
+body .container .article .user .user-profile .user-details .post-date {
   color: hsl(214, 17%, 51%);
   font-weight: 500;
 }
-body .container .article .user .share-button {
+body .container .article .user .unclicked {
   background-color: hsl(210, 46%, 95%);
-  border-radius: 50%;
-  padding: 0.75rem;
-  margin-left: auto;
 }
-body .container .article .user .share-button img {
+body .container .article .user .share-button {
+  border-radius: 50%;
+  padding: 0.65rem;
+}
+body .container .article .user .share-button svg {
+  width: 1.2rem;
+}
+body .container .article .popup {
+  background-color: hsl(217, 19%, 35%);
+  display: flex;
+  opacity: 0;
+  padding: 1.5rem 2.5rem;
+  position: absolute;
   width: 100%;
+  border-radius: 0 0 1rem 1rem;
+  left: 0;
+  bottom: 0;
+  justify-content: space-between;
+  align-items: center;
+}
+body .container .article .popup img {
+  width: 1.2rem;
+}
+body .container .article .popup .links {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+body .container .article .popup .links span {
+  letter-spacing: 0.4rem;
+  color: hsl(214, 17%, 51%);
+}
+body .container .article .popup .links img {
+  width: 1.6rem;
+}
+body .container .article .popup .clicked {
+  background-color: hsl(214, 17%, 51%);
+}
+body .container .article .popup .clicked svg path {
+  fill: white;
 }
 body footer {
   display: none;
 }
 
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 745px) {
   body {
-    padding: 40rem 40rem;
+    padding: 10rem 10rem;
   }
   body .container {
     display: flex;
     flex-direction: row;
-    max-width: 700%;
+    width: 800px;
+    height: 300px;
+    max-width: none;
   }
   body .container img {
-    flex: 33%;
-    border-radius: 4% 0 0 4%;
-    max-width: 100%;
-    height: 100%;
+    border-radius: 1rem 0 0 1rem;
+    width: 40%;
     -o-object-fit: cover;
        object-fit: cover;
+    -o-object-position: left;
+       object-position: left;
   }
   body .container .article {
-    flex: 67%;
     padding: 3rem;
+  }
+  body .container .article .article-title {
+    font-size: 1.6rem;
+  }
+  body .container .article .user a:hover {
+    background-color: hsl(217, 19%, 35%);
+    cursor: pointer;
+  }
+  body .container .article .user .popup {
+    width: 250px;
+    height: 2rem;
+    bottom: 30%;
+    left: 77.5%;
+    padding: 2rem 2.5rem;
+    place-content: center;
+    border-radius: 1rem;
+  }
+  body .container .article .user .popup .share-button {
+    display: none;
+  }
+  body .container .article .user .popup::after {
+    content: "";
+    width: 0;
+    height: 0;
+    border-color: hsl(217, 19%, 35%) transparent transparent transparent;
+    border-width: 10px;
+    border-style: solid;
+    position: absolute;
+    top: 50px;
+  }
+}
+.slide-top {
+  animation: slide-top 0.3s cubic-bezier(0.5, 0.8, 0.5, 0.8) both;
+}
+
+@keyframes slide-top {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.slide-bottom {
+  animation: slide-bottom 0.3s cubic-bezier(0.5, 0.8, 0.5, 0.8) both;
+}
+
+@keyframes slide-bottom {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(200%);
+    opacity: 0;
   }
 }/*# sourceMappingURL=styles.css.map */
