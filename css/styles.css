@@ -173,6 +173,9 @@ body footer {
     position: absolute;
     top: 50px;
   }
+  body footer {
+    display: block;
+  }
 }
 .slide-top {
   animation: slide-top 0.3s cubic-bezier(0.5, 0.8, 0.5, 0.8) both;
